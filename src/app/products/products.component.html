@@ -1,0 +1,34 @@
+<div class="container">
+    <ul class="nav navbar-nav">
+    
+        <li class="nav-item" align="right">
+          <button type="button" class="btn btn-success btn-sm"> <a class="nav-link" routerLink='createproducts'>Create Products</a></button>
+          </li>
+      
+    </ul>
+  </div>
+  <br>
+  <div class="container">
+     
+          <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Weight</th>
+                  <th>Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let product of Repdata">
+                <tr>
+                  <td>{{product.productName}}</td>
+                  <td>{{product.weight}}</td>
+                  <td>{{product.price}}</td>
+                  <td><button type="button" class="btn btn-danger" (click)="deleteProduct(product._id)">Delete</button>
+                  <!-- / <button type="button" class="btn btn-success" (click)="edit(product)" >Edit</button></td> -->
+                  / <button type="button" class="btn btn-success"> <a routeLink='createproducts' queryParams="{ product: product }">Edit</a></button></td>
+                </tr>
+              </tbody>
+            </table>
+  </div>
+  <div><router-outlet></router-outlet></div>
